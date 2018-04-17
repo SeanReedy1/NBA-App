@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>NBA Player Comparison App</title>
+    <link href="index.css" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <section class="search-players">
+      <h1>Search and select two or more NBA players and then compare them by points, rebounds, or assists! </h1>
+        <form class="js-search-SportsFeeds">
+          <fieldset name="Player Search">
+          <legend>Please enter either a first and last name or just a last name</legend>
+          <label for="first-name"></label>
+          <input type="text" class="js-query-first" id="first-name" placeholder="First Name">
+          <label for="last-name"></label>
+          <input type="text" class="js-query-last" id="last-name" placeholder="Last Name">
+          <input type="submit">
+          </fieldset>
+        </form>
+        <button class="display-saved-players">Look at your selected playerrs</button>
+      
+      <div class="js-search-results">
+        
+      </div>
+      </section>
+      <div class="saved-players">
+        
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

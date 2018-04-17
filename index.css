@@ -1,0 +1,33 @@
+.player{
+  border: 5px solid black;
+  margin-bottom: 5px;
+  width:30%;
+  padding: 5px;
+}
+
+.saved-player {
+  border: 5px solid black;
+  margin-bottom: 5px;
+  width:30%;
+  padding: 5px;
+  margin-top:5px;
+}
+
+.hidden{
+  display:none;
+}
+
+.saved-player {
+  border:5px solid black;
+  margin-bottom: 5px;
+}
+
+.highlight{
+  color:red;
+  font-weight:bold;
+}
+
+.player-image{
+  height:100px;
+  width:100px;
+}
