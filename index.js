@@ -1,4 +1,4 @@
- STATE = { results: [], savedPlayers:[] }
+STATE = { results: [], savedPlayers:[] }
 
 function hideSavedSection(){
   $(".saved-players").hide();
@@ -98,35 +98,32 @@ function renderResult(player){
   if(STATE.results.length<2){
     return `
     <div class="col-6">
-    <div class="player">
+    <section class="player" role="region">
     ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
-
     <p>${player.player.FirstName} ${player.player.LastName}</p>
-  <p>${player.team.City} ${player.team.Name}</p>
-  <p>Number ${player.player.JerseyNumber}</p>
-  <p>Position: ${player.player.Position}</p>
+    <p>${player.team.City} ${player.team.Name}</p>
+    <p>Number ${player.player.JerseyNumber}</p>
+    <p>Position: ${player.player.Position}</p>
  
-  <button type="button" class="save"  data-player-id="${player.player.ID}">Select</button>
-  </div>
-    
+    <button type="button" class="save"  data-player-id="${player.player.ID}">Select</button>
+    </section>
     </div>  
     `
   }
   else{
   return `
     <div class="col-6">
-    <div class="player">
-    ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
-
+    <section class="player" role="region">
+    ${player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
     <p>${player.player.FirstName} ${player.player.LastName}</p>
-  <p>${player.team.City} ${player.team.Name}</p>
-  <p>Number ${player.player.JerseyNumber}</p>
-  <p>Position: ${player.player.Position}</p>
+    <p>${player.team.City} ${player.team.Name}</p>
+    <p>Number ${player.player.JerseyNumber}</p>
+    <p>Position: ${player.player.Position}</p>
  
-<button type="button" class="save"  data-player-id="${player.player.ID}">Select</button>
-</div>
+    <button type="button" class="save"  data-player-id="${player.player.ID}">Select</button>
+    </section>
     
-  </div>  
+    </div>  
   `
  }
 }
@@ -173,8 +170,6 @@ function renderSavedPlayers(savedPlayer){
      <p>Position: ${savedPlayer.player.Position}</p>
      </div>
      </div>
-     
-  
      `
     )
 
@@ -193,10 +188,19 @@ function removeSavedPlayers(){
     $(".saved-players").empty();
     $(".saved-players").append(
       `
+      <div class="display-saved-wrapper">
       <button class='back-to-search'>Back to search</button>
+      </div>
       <h1>You have not selected any players yet</h1>
   
       `)
+  })
+}
+
+function removeFromHome(){
+  $(".remove-players").click( function(){
+    STATE.savedPlayers=[];
+   
   })
 }
 
@@ -204,7 +208,7 @@ function removeSavedPlayers(){
 function displaySavedPlayers(data){
   $(".saved-players").empty();
    $(".saved-players").append(" <h1>Saved Players</h1> <button class='back-to-search'>Back to search</button><button class='remove-players'>Remove Saved Players</button> <button class='comparePoints'> Compare Points Per Game</button> <button class=compare-rebounds>Compare Rebounds Per Game</button><button class='compare-assists'>Compare Assists Per Game</button>")
-  if(STATE.savedPlayers.length===0){
+   if(STATE.savedPlayers.length===0){
     $(".saved-players").append(
       `
       <h1>You have not selected any players yet</h1>
@@ -237,25 +241,22 @@ function comparePoints(){
     STATE.savedPlayers.forEach(function(player, index) {
        renderPointsScored(player, index);
     });
-    
-    // STATE.savedPlayers=[];
-  
-    
+
   })
 }
 
 function renderPointsScored(player, index){
   $(".saved-players").append(
   `
-  <div class="col-6">
-  <div class="player">
-  ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
-  <p class="rank">Rank: ${index+1}</p>
-  <p>${player.player.FirstName} ${player.player.LastName}</p>
-  <p>${player.team.City} ${player.team.Name}</p>
-  <p class="highlight">Points Per Game: ${player.stats.PtsPerGame['#text']}</p>
- </div>
- </div>
+    <div class="col-6">
+    <div class="player">
+    ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
+    <p class="rank">Rank: ${index+1}</p>
+    <p>${player.player.FirstName} ${player.player.LastName}</p>
+    <p>${player.team.City} ${player.team.Name}</p>
+    <p class="highlight">Points Per Game: ${player.stats.PtsPerGame['#text']}</p>
+   </div>
+   </div>
  `
  )
 }
@@ -284,23 +285,21 @@ function compareRebounds(){
     let reboundsSorted=STATE.savedPlayers.map(function(player, index) {
       return renderRebounds(player, index);
     });
-   
-  // STATE.savedPlayers=[];
-   
+
   })
 }
 
 function renderRebounds(player, index){
   $(".saved-players").append( `
     <div class="col-6">
-  <div class="player">
-  ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
-  <p>Rank: ${index+1}</p>
-  <p>${player.player.FirstName} ${player.player.LastName}</p>
-<p>${player.team.City} ${player.team.Name}</p>
- <p class="highlight">Rebounds Per Game: ${player.stats.RebPerGame['#text']}</p>
- </div>
- </div>
+    <div class="player">
+      ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
+      <p>Rank: ${index+1}</p>
+      <p>${player.player.FirstName} ${player.player.LastName}</p>
+      <p>${player.team.City} ${player.team.Name}</p>
+      <p class="highlight">Rebounds Per Game: ${player.stats.RebPerGame['#text']}</p>
+   </div>
+   </div>
  `
  )
 }
@@ -329,23 +328,21 @@ function compareAssists(){
     let reboundsSorted=STATE.savedPlayers.map(function(player, index) {
       return renderAssists(player, index);
     });
-   
-  // STATE.savedPlayers=[];
-   
+  
   })
 }
 
 function renderAssists(player, index){
   $(".saved-players").append( `
     <div class="col-6">
-  <div class="player">
-  ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
-  <p>Rank: ${index+1}</p>
-  <p>${player.player.FirstName} ${player.player.LastName}</p>
-<p>${player.team.City} ${player.team.Name}</p>
- <p class="highlight">Assists Per Game: ${player.stats.AstPerGame['#text']}</p>
- </div>
- </div>
+    <div class="player">
+      ${ player.player.FirstName ? `<img class="player-image" src="https://nba-players.herokuapp.com/players/${player.player.LastName}/${player.player.FirstName}" />`: "" }
+     <p>Rank: ${index+1}</p>
+     <p>${player.player.FirstName} ${player.player.LastName}</p>
+     <p>${player.team.City} ${player.team.Name}</p>
+     <p class="highlight">Assists Per Game: ${player.stats.AstPerGame['#text']}</p>
+    </div>
+    </div>
  `
  )
 }
@@ -380,3 +377,4 @@ $(homeToSave)
 $(hideSearchResults)
 $(savedPlayersClick)
 $(removeSavedPlayers)
+$(removeFromHome)

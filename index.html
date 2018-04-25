@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -12,16 +12,16 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   </head>
   <body>
-    <main>
+    <main role="main">
       
       
-      <section class="search-players">
+      <section class="search-players" role="region">
       <div class="row">
         <div class="col-12">
-      <h1>Search and select two or more NBA players and then compare them by points, rebounds, or assists! </h1>
+          <h1>Search and select two or more NBA players and then compare them by points, rebounds, or assists! </h1>
         </div>
       </div>
-        <form class="js-search-SportsFeeds">
+        <form class="js-search-SportsFeeds" role="form">
           <fieldset name="Player Search">
           <legend>Please enter either a first and last name or just a last name</legend>
           <label for="first-name"></label>
@@ -32,20 +32,21 @@
           </fieldset>
         </form>
         <div class="display-saved-wrapper">
-        <button class="display-saved-players">Look at your selected players</button>
+          <button class="display-saved-players">Look at your selected players</button>
+          <button class='remove-players'>Remove Saved Players</button>
         </div>
       
       <div class="row">
         
-      <div class="js-search-results">
+        <section class="js-search-results" role="region">
       
-      </div>
+        </section>
       </div>
       </section>
       <div class="row">
-      <div class="saved-players">
+        <section class="saved-players" role="region">
         
-      </div>
+       </section>
     </div>
     </main>
     <script src="index.js"></script>
