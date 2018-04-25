@@ -1,25 +1,72 @@
+body{
+  background-color: #D3D3D3;
+}
+
 .player{
   border: 5px solid black;
   margin-bottom: 5px;
-  width:30%;
+  font-weight: bold;
   padding: 5px;
+  background-color: white;
+  margin-top:10px;
+  text-align: center;
+  
+}
+
+.player-image{
+  text-align: center;
+}
+
+.player p{
+  text-align: center;
+  font-size: 17px;
+}
+
+
+
+input {
+  padding: 10px;
 }
 
 .saved-player {
   border: 5px solid black;
   margin-bottom: 5px;
-  width:30%;
+  font-weight:bold;
   padding: 5px;
-  margin-top:5px;
-}
+  background-color: white;
+  margin-top: 10px;
+  
+  }
+
+  .saved-players{
+    margin-top:10px;
+  }
+
+  .saved-player p{
+    position: relative;
+    left: 30%;
+    font-size: 17px;
+  }
+
+  .saved-players button{
+    padding: 10px;
+    font-weight: bold;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .rank {
+    border: 5px solid blue;
+    padding: 5px;
+    color: green;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5px;
+
+  }
 
 .hidden{
   display:none;
-}
-
-.saved-player {
-  border:5px solid black;
-  margin-bottom: 5px;
 }
 
 .highlight{
@@ -28,6 +75,56 @@
 }
 
 .player-image{
-  height:100px;
-  width:100px;
+  width:80%;
+  text-align: center;
+}
+
+
+
+h1{
+  font-family: 'Abril Fatface', cursive;
+  text-align: center;
+  font-size: 40px;
+}
+
+form {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.search-players button {
+  position: relative;
+  
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.player button{
+  position: relative;
+  
+}
+
+.saved-buttons{
+  position:relative;
+  left:20%;
+}
+
+.back-to-search{
+  display:inline-block;
+}
+
+.back-from-points{
+  margin: 0 auto;
+}
+
+.display-saved-players{
+  margin: 0 auto;
+  position: relative;
+  
+}
+
+.display-saved-wrapper{
+  text-align:center;
 }
