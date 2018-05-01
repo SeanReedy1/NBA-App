@@ -25,29 +25,31 @@
           <fieldset name="Player Search">
           <legend>Please enter either a first and last name or just a last name</legend>
           <label for="first-name"></label>
-          <input type="text" class="js-query-first" id="first-name" placeholder="First Name">
+          <input type="text" class="js-query-first" id="first-name" placeholder="First Name" autofocus>
           <label for="last-name"></label>
           <input type="text" class="js-query-last" id="last-name" placeholder="Last Name">
           <button class="player-search">Search for Players</button>
           </fieldset>
         </form>
-        <div class="display-saved-wrapper">
-          <button class="display-saved-players">Look at your selected players</button>
-          <button class='remove-players'>Remove Saved Players</button>
+         <div class="row">
+           <div class="display-saved-wrapper">
+          
+          
         </div>
-      
-      <div class="row">
         
-        <section class="js-search-results" role="region">
+        <section class="js-search-results" role="region" aria-live="assertive">
       
         </section>
       </div>
       </section>
       <div class="row">
-        <section class="saved-players" role="region">
-        
+        <section class="saved-players" role="region" aria-live="assertive">
+        <h1>Saved Players</h1> <button class='remove-players'>Remove Saved Players</button> <button class='compare-points'> Compare Points Per Game</button> <button class=compare-rebounds>Compare Rebounds Per Game</button><button class='compare-assists'>Compare Assists Per Game</button>
        </section>
     </div>
+       
+      
+   
     </main>
     <script src="index.js"></script>
   </body>
